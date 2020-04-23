@@ -10,9 +10,9 @@ const port = process.env.PORT || 3000;
 
  app.use((req, res, next)=>{
      var log = new Date().toString()+' ' + req.method + ' ' + req.url;
-     console.log(log);
+    //  console.log(log);
      fs.appendFile('server.log', log + '\n', (e)=>{
-         console.log('Could not read file');
+         
      });
      next();
  });
@@ -36,6 +36,15 @@ app.use(express.static(__dirname + '/public'));
     res.render('home.hbs', {
         pageTitle: 'Home Page',
         welcomeMessage: 'Welcome to my WebSite',
+        currentYear: new Date().getFullYear()
+    });
+ })
+
+//  product
+app.get('/products', (req, res)=>{
+    res.render('products.hbs', {
+        pageTitle: 'Products Page',
+        welcomeMessage: 'The Company Portfolio',
         currentYear: new Date().getFullYear()
     });
  })
