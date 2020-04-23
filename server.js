@@ -49,5 +49,5 @@ app.use(express.static(__dirname + '/public'));
 
  app.use(express.static(__dirname + '/public'));
  app.listen(port, ()=>{
-     console.log(`Server created on port ${port}`)
+     console.log(`Server is created on port ${port}`)
  });
